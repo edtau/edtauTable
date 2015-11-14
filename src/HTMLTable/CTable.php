@@ -24,8 +24,8 @@ class CTable
          * @return string|false if set
          * @return string|false
          */
-    public function getExecption(){
-        if(is_string($this->exception)){
+    public function getExecption() {
+        if (is_string($this->exception)) {
             return $this->exception;
         }
         return false;
@@ -55,14 +55,14 @@ class CTable
      */
     public function validateArray($array)
     {
-        try{
+        try {
                 if (is_array($array) === false)
-                throw new Exception("is not a valid array: ".$array);
+                throw new Exception("is not a valid array: " . $array);
         } catch (Exception $e) {
-            if($this->displayExceptions){
+            if ($this->displayExceptions) {
                 echo  $e->getMessage();
             }
-            $this->exception =  $e->getMessage();
+            $this->exception = $e->getMessage();
             return false;
         }
         return true;
@@ -114,7 +114,7 @@ class CTable
         try {
             if ($this->tableHeader != null && $this->rows != null) {
                 $table = "<table>";
-                    if($id != null){
+                    if ($id != null) {
                     $table = "<table = id='$id'>";
                 }
                 $table .= $this->tableHeader;
