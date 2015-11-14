@@ -7,6 +7,9 @@
  * from /path/to/project/src/Baz/Qux.php:
  *
  *      new \Foo\Bar\Baz\Qux;
+ *      Example for prefix
+ *      project-specific namespace prefix
+ *      $prefix = 'Foo\\Bar\\';
  *
  * @param string $class The fully-qualified class name.
  * @return void
@@ -15,8 +18,6 @@
 spl_autoload_register(
     function ($class) {
 
-        // project-specific namespace prefix
-        //$prefix = 'Foo\\Bar\\';
         $prefix = 'Edtau';
 
         // base directory for the namespace prefix
