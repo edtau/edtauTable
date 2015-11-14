@@ -36,7 +36,11 @@ class CTable
         return $this->tableHeader;
     }
     /**
+<<<<<<< HEAD
      * Method to get the table rows
+=======
+     * Method to get the table rows 
+>>>>>>> origin/scrutinizer-patch-1
      * @return string[] with rows
      */
     public function getRows()

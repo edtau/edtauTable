@@ -97,5 +97,6 @@ class CTableTest extends \PHPUnit_Framework_TestCase
         $table = new CTable(true);
         $this->assertNull($table->getExecption());
         $result = $table->validateArray("string");
+        
     }
 }
