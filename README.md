@@ -29,4 +29,5 @@ History
 v1.1* (2015-11-13)
 * Updated the CTable class with tests
 * Added methods to build table with addRows and addHeader 
+
 v1.0* (2015-11-10)
