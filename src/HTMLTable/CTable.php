@@ -147,7 +147,6 @@ class CTable
         $table = $this->setId($id);
         $table .= $this->setTableHead($array);
        
-        $table .= $thead;
         $row = "";
         foreach ($array as $value) {
             $row .= $this->addRow($value);
