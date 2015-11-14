@@ -9,12 +9,12 @@ class CTable
     private $displayExceptions = false;
     private $exception = false;
     
-        /**
-         * Constructor takes boolean for showing execptions or not
-         * Default value is false - no exceptions displays but saves 
-         * to exception so they can be retrived later
-         * @param boolean displayExceptions
-         */
+    /**
+     * Constructor takes boolean for showing execptions or not
+     * Default value is false - no exceptions displays but saves 
+     * to exception so they can be retrived later
+     * @param boolean displayExceptions
+     */
     public function __construct($displayExceptions = false)
     {
         $this->displayExceptions = $displayExceptions;
@@ -30,10 +30,10 @@ class CTable
         }
         return false;
     }
-        /**
-         * Method to get the table header
-         * @return string tableheader
-         */
+    /**
+     * Method to get the table header
+     * @return string tableheader
+     */
     public function getHeader()
     {
         return $this->tableHeader;
@@ -155,17 +155,27 @@ class CTable
         $table .= "</table>\n";
         return $table;
     }
+    /**
+     * Function to check and set id on a table
+     * @param id
+     * @return string table tag with id if it is present
+     */
     private function setId($id) {
         if ($id != null) {
             return "<table id='$id'>\n";
         }
         return "<table>\n";
     }
+       /**
+     * Function to build the table header 
+     * @param array the table data 
+     * @return string table header
+     */
     private function setTableHead($array) {
     	 if ($this->tableHeader != null) {
             return $this->tableHeader;
-         } 
-            $theadData = array_shift($array);
-           return $this->addHeader($theadData);
+        } 
+        $theadData = array_shift($array);
+        return $this->addHeader($theadData);
     }
 }
