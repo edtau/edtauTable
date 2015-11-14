@@ -19,11 +19,11 @@ class CTable
     {
         $this->displayExceptions = $displayExceptions;
     }
-        /**
-         * Method to get the exception
-         * @return string|false if set
-         * @return string|false
-         */
+    /**
+     * Method to get the exception
+     * @return string|false if set
+     * @return string|false
+     */
     public function getExecption() {
         if (is_string($this->exception)) {
             return $this->exception;
@@ -166,11 +166,11 @@ class CTable
         }
         return "<table>\n";
     }
-        /**
-         * Function to build the table header 
-         * @param array the table data 
-         * @return string table header
-         */
+    /**
+     * Function to build the table header 
+     * @param array the table data 
+     * @return string table header
+     */
     private function setTableHead($array) {
             if ($this->tableHeader != null) {
             return $this->tableHeader;
