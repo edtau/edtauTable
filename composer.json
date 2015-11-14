@@ -1,0 +1,22 @@
+{
+    "name": "edtau/ctable",    
+    "type": "library",
+    "description": "Classes for HTML Tables",
+    "keywords": ["html", "table"],
+    "homepage": "http://eddie.taube.se/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Eddie Taube",
+            "email": "eddie.taube@gmail.se",
+            "homepage": "http://eddietaube.se",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+    "autoload": {
+        "psr-4": { "Edtau\\": "src/" }
+    }
+}
