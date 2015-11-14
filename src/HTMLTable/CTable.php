@@ -140,7 +140,7 @@ class CTable
      */
     public function simpleTable($array, $id = null)
     {
-        if($this->validateArray($array) === false){
+        if ($this->validateArray($array) === false) {
             return false;
         }
         
@@ -155,13 +155,13 @@ class CTable
         $table .= "</table>\n";
         return $table;
     }
-    private function setId($id){
+    private function setId($id) {
         if ($id != null) {
             return "<table id='$id'>\n";
         }
         return "<table>\n";
     }
-    private function setTableHead($array){
+    private function setTableHead($array) {
     	 if ($this->tableHeader != null) {
             return $this->tableHeader;
          } 
