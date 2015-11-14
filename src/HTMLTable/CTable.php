@@ -10,7 +10,7 @@ class CTable
     private $tableHeader = null;
     private $rows = null;
     private $displayExceptions = false;
-    private $exception = null;
+    private $exception = false;
     
      /**
      * Constructor takes boolean for showing execptions or not
@@ -28,11 +28,10 @@ class CTable
      * @return false
      */
     public function getExecption(){
-        if($this->exception === null){
-            return false;
+        if(is_string($this->exception)){
+            return $this->exception;
         }
-        return $this->exception;
-
+        return false;
     }
      /**
      * Method to get the table header
@@ -174,8 +173,4 @@ class CTable
         $table .= "</table>\n";
         return $table;
     }
-
-
-
-
 }
