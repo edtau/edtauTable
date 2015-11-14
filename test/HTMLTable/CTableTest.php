@@ -62,8 +62,7 @@ class CTableTest extends \PHPUnit_Framework_TestCase
 
         $result = $table->getTable();
 
-        $this->assertStringStartsWith('<table>', $result);
-        $this->assertStringEndsWith('</table>', $result);
+         $this->assertStringEndsWith('</table>', $result);
     }
 
     public function testGetHeader()
@@ -98,10 +97,5 @@ class CTableTest extends \PHPUnit_Framework_TestCase
         $table = new CTable(true);
         $this->assertFalse($table->getExecption());
         $result = $table->validateArray("string");
-        var_dump($result);
-        if($result != false){
-            $this->assertFalse($table->getExecption());
-        }
-
     }
 }

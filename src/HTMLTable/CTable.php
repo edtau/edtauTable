@@ -7,11 +7,11 @@ class CTable
     private $tableHeader = null;
     private $rows = null;
     private $displayExceptions = false;
-    private $exception = false;
-    
+    private $exception = null;
+    private $id = null;
     /**
      * Constructor takes boolean for showing execptions or not
-     * Default value is false - no exceptions displays but saves 
+     * Default value is false - no exceptions displays but saves
      * to exception so they can be retrived later
      * @param boolean displayExceptions
      */
@@ -25,10 +25,7 @@ class CTable
      * @return string|false
      */
     public function getExecption() {
-        if (is_string($this->exception)) {
-            return $this->exception;
-        }
-        return false;
+       return $this->exception;
     }
     /**
      * Method to get the table header
@@ -39,7 +36,7 @@ class CTable
         return $this->tableHeader;
     }
     /**
-     * Method to get the table rows 
+     * Method to get the table rows
      * @return string[] with rows
      */
     public function getRows()
@@ -48,7 +45,7 @@ class CTable
     }
     /**
      * Method to check that it is a array
-     * Save execption if not array and 
+     * Save execption if not array and
      * can show execption if set in constructor
      * @param array the table data
      * @return boolean or false
@@ -67,6 +64,7 @@ class CTable
         }
         return true;
     }
+
     /**
      * @param $array the values used to get a table row
      * @return string the table row
@@ -103,7 +101,7 @@ class CTable
     }
     /**
      * Function to get the generated table
-     * Uses the custom functions addRows and andHeader to 
+     * Uses the custom functions addRows and andHeader to
      * build table
      * @param $array the table data
      * @param null $id optional to use id for table
@@ -111,18 +109,18 @@ class CTable
      */
     public function getTable($id = null)
     {
-        try {
+      try {
             if ($this->tableHeader != null && $this->rows != null) {
-                $table = "<table>";
-                    if ($id != null) {
-                    $table = "<table = id='$id'>";
-                }
-                $table .= $this->tableHeader;
-                foreach ($this->rows as $row) {
+
+              $this->setId($id);
+              $table = "<table $this->id>";
+              $table .= $this->tableHeader;
+
+              foreach ($this->rows as $row) {
                     $table .= $row;
-                }
-                $table .= "</table>";
-                return $table;
+              }
+              $table .= "</table>";
+              return $table;
             }
             throw new InvalidArgumentException("You have not added the table header and rows");
         } catch (Exception $e) {
@@ -143,10 +141,10 @@ class CTable
         if ($this->validateArray($array) === false) {
             return false;
         }
-        
+
         $table = $this->setId($id);
         $table .= $this->setTableHead($array);
-       
+
         $row = "";
         foreach ($array as $value) {
             $row .= $this->addRow($value);
@@ -160,22 +158,20 @@ class CTable
      * @param id
      * @return string table tag with id if it is present
      */
-    private function setId($id) {
-        if ($id != null) {
-            return "<table id='$id'>\n";
-        }
-        return "<table>\n";
+    private function setId($id = null) {
+      $this->id = ($id === null) ? null : " id='$id'";
     }
     /**
-     * Function to build the table header 
-     * @param array the table data 
+     * Function to build the table header
+     * @param array the table data
      * @return string table header
      */
-    private function setTableHead($array) {
-            if ($this->tableHeader != null) {
-            return $this->tableHeader;
-        } 
-        $theadData = array_shift($array);
-        return $this->addHeader($theadData);
+    private function setTableHead($array = null) {
+        $tableHeader =  $this->getHeader();
+        if ($tableHeader == null) {
+          $theadData = array_shift($array);
+          $tableHeader =  $this->addHeader($theadData);
+        }
+        return $tableHeader;
     }
 }
