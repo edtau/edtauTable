@@ -21,8 +21,8 @@ class CTable
     }
         /**
          * Method to get the exception
-         * @return execption if set
-         * @return false
+         * @return string|false if set
+         * @return string|false
          */
     public function getExecption(){
         if(is_string($this->exception)){
@@ -40,7 +40,7 @@ class CTable
     }
     /**
      * Method to get the table rows 
-     * @return array with rows
+     * @return string[] with rows
      */
     public function getRows()
     {
@@ -51,7 +51,7 @@ class CTable
      * Save execption if not array and 
      * can show execption if set in constructor
      * @param array the table data
-     * @return true or false
+     * @return boolean or false
      */
     public function validateArray($array)
     {
