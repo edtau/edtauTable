@@ -4,7 +4,7 @@ CTable simple PHP class to render HTML tables from array
 [![Latest Stable Version](https://poser.pugx.org/leaphly/cart-bundle/version.png)]
 (https://packagist.org/packages/edtau/ctable)
 [![Build Status](https://travis-ci.org/edtau/edtauTable.svg?branch=master)](https://travis-ci.org/edtau/edtauTable)
-
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/edtau/edtauTable/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/edtau/edtauTable/?branch=master)
  
  
  
