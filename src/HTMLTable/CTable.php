@@ -25,7 +25,7 @@ class CTable
      * @return string|false
      */
     public function getExecption() {
-       return $this->exception;
+        return $this->exception;
     }
     /**
      * Method to get the table header
@@ -110,18 +110,18 @@ class CTable
      */
     public function getTable($id = null)
     {
-      try {
+        try {
             if ($this->tableHeader != null && $this->rows != null) {
 
-              $this->setId($id);
-              $table = "<table $this->id>";
-              $table .= $this->tableHeader;
+                $this->setId($id);
+                $table = "<table $this->id>";
+                $table .= $this->tableHeader;
 
-              foreach ($this->rows as $row) {
+                foreach ($this->rows as $row) {
                     $table .= $row;
-              }
-              $table .= "</table>";
-              return $table;
+                }
+                $table .= "</table>";
+                return $table;
             }
             throw new InvalidArgumentException("You have not added the table header and rows");
         } catch (Exception $e) {
@@ -160,7 +160,7 @@ class CTable
      * @return string table tag with id if it is present
      */
     private function setId($id = null) {
-      $this->id = ($id === null) ? null : " id='$id'";
+        $this->id = ($id === null) ? null : " id='$id'";
     }
     /**
      * Function to build the table header
@@ -170,8 +170,8 @@ class CTable
     private function setTableHead($array = null) {
         $tableHeader =  $this->getHeader();
         if ($tableHeader == null) {
-          $theadData = array_shift($array);
-          $tableHeader =  $this->addHeader($theadData);
+            $theadData = array_shift($array);
+            $tableHeader =  $this->addHeader($theadData);
         }
         return $tableHeader;
     }
