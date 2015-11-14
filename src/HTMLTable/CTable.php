@@ -24,7 +24,8 @@ class CTable
     }
      /**
      * Method to get the exception
-     * @return execption if set otherwise false
+     * @return execption if set
+     * @return false
      */
     public function getExecption(){
         if($this->exception === null){
