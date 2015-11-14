@@ -156,7 +156,7 @@ class CTable
         $table .= "</table>\n";
         return $table;
     }
-    private function tableSetId($id){
+    private function setId($id){
         if ($id != null) {
             return "<table id='$id'>\n";
         }
