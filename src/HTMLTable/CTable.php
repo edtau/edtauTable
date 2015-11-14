@@ -11,10 +11,21 @@ class CTable
     private $rows = null;
     private $displayExceptions = false;
     private $exception = null;
+    
+     /**
+     * Constructor takes boolean for showing execptions or not
+     * Default value is false - no exceptions displays but saves 
+     * to exception so they can be retrived later
+     * @param boolean displayExceptions
+     */
     public function __construct($displayExceptions = false)
     {
         $this->displayExceptions = $displayExceptions;
     }
+     /**
+     * Method to get the exception
+     * @return execption if set otherwise false
+     */
     public function getExecption(){
         if($this->exception === null){
             return false;
@@ -22,16 +33,29 @@ class CTable
         return $this->exception;
 
     }
+     /**
+     * Method to get the table header
+     * @return string tableheader
+     */
     public function getHeader()
     {
         return $this->tableHeader;
     }
-
+    /**
+     * Method to get the table rows 
+     * @return array with rows
+     */
     public function getRows()
     {
         return $this->rows;
     }
-
+    /**
+     * Method to check that it is a array
+     * Save execption if not array and 
+     * can show execption if set in constructor
+     * @param array the table data
+     * @return true or false
+     */
     public function validateArray($array)
     {
         try{
@@ -45,7 +69,6 @@ class CTable
             return false;
         }
         return true;
-
     }
 
     /**
@@ -83,13 +106,22 @@ class CTable
         }
         return false;
     }
-
+    /**
+     * Function to get the generated table
+     * Uses the custom functions addRows and andHeader to 
+     * build table
+     * @param $array the table data
+     * @param null $id optional to use id for table
+     * @return string the complete table
+     */
     public function getTable($id = null)
     {
-
         try {
             if ($this->tableHeader != null && $this->rows != null) {
                 $table = "<table>";
+                 if($id != null){
+                    $table = "<table = id='$id'>";
+                }
                 $table .= $this->tableHeader;
                 foreach ($this->rows as $row) {
                     $table .= $row;
@@ -102,8 +134,6 @@ class CTable
             $this->exception = $e->getMessage();
         }
         return false;
-
-
     }
 
     /**
