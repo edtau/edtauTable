@@ -1,5 +1,5 @@
 {
-    "name": "edtau/ctable",    
+    "name": "edtauTable/ctable",    
     "type": "library",
     "description": "Classes for HTML Tables",
     "keywords": ["html", "table"],
@@ -17,6 +17,6 @@
         "php": ">=5.4"
     },
     "autoload": {
-        "psr-4": { "Edtau\\": "src/" }
+        "psr-4": { "edtauTable\\": "src/" }
     }
 }
