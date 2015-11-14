@@ -9,31 +9,31 @@ class CTable
     private $displayExceptions = false;
     private $exception = false;
     
-     /**
-     * Constructor takes boolean for showing execptions or not
-     * Default value is false - no exceptions displays but saves 
-     * to exception so they can be retrived later
-     * @param boolean displayExceptions
-     */
+        /**
+         * Constructor takes boolean for showing execptions or not
+         * Default value is false - no exceptions displays but saves 
+         * to exception so they can be retrived later
+         * @param boolean displayExceptions
+         */
     public function __construct($displayExceptions = false)
     {
         $this->displayExceptions = $displayExceptions;
     }
-     /**
-     * Method to get the exception
-     * @return execption if set
-     * @return false
-     */
+        /**
+         * Method to get the exception
+         * @return execption if set
+         * @return false
+         */
     public function getExecption(){
         if(is_string($this->exception)){
             return $this->exception;
         }
         return false;
     }
-     /**
-     * Method to get the table header
-     * @return string tableheader
-     */
+        /**
+         * Method to get the table header
+         * @return string tableheader
+         */
     public function getHeader()
     {
         return $this->tableHeader;
@@ -56,7 +56,7 @@ class CTable
     public function validateArray($array)
     {
         try{
-             if (is_array($array) === false)
+                if (is_array($array) === false)
                 throw new Exception("is not a valid array: ".$array);
         } catch (Exception $e) {
             if($this->displayExceptions){
@@ -114,7 +114,7 @@ class CTable
         try {
             if ($this->tableHeader != null && $this->rows != null) {
                 $table = "<table>";
-                 if($id != null){
+                    if($id != null){
                     $table = "<table = id='$id'>";
                 }
                 $table .= $this->tableHeader;
