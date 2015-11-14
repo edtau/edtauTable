@@ -166,13 +166,13 @@ class CTable
         }
         return "<table>\n";
     }
-       /**
-     * Function to build the table header 
-     * @param array the table data 
-     * @return string table header
-     */
+        /**
+         * Function to build the table header 
+         * @param array the table data 
+         * @return string table header
+         */
     private function setTableHead($array) {
-    	 if ($this->tableHeader != null) {
+            if ($this->tableHeader != null) {
             return $this->tableHeader;
         } 
         $theadData = array_shift($array);
