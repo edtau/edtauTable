@@ -1,12 +1,9 @@
 <?php
 namespace Edtau\HTMLTable;
-
 use Exception;
 use InvalidArgumentException;
-
 class CTable
 {
-
     private $tableHeader = null;
     private $rows = null;
     private $displayExceptions = false;
@@ -70,7 +67,6 @@ class CTable
         }
         return true;
     }
-
     /**
      * @param $array the values used to get a table row
      * @return string the table row
@@ -88,7 +84,6 @@ class CTable
         }
         return false;
     }
-
     /**
      * Function to generate the tablehead
      * @param $theadData the data for the tablehead
@@ -135,7 +130,6 @@ class CTable
         }
         return false;
     }
-
     /**
      * Function to get the generated table
      * the first row in the array becomes the head of
@@ -146,31 +140,33 @@ class CTable
      */
     public function simpleTable($array, $id = null)
     {
-
         if($this->validateArray($array) === false){
             return false;
         }
-        $table = "<table>\n";
-
-        if ($id != null) {
-            $table = "<table id='$id'>\n";
-        }
-
-        if ($this->tableHeader != null) {
-            $thead = $this->tableHeader;
-         } else {
-            $theadData = array_shift($array);
-            $thead = $this->addHeader($theadData);
-        }
+        
+        $table = $this->setId($id);
+        $table .= $this->setTableHead($array);
+       
         $table .= $thead;
         $row = "";
-
         foreach ($array as $value) {
             $row .= $this->addRow($value);
         }
-
         $table .= $row;
         $table .= "</table>\n";
         return $table;
+    }
+    private function tableSetId($id){
+        if ($id != null) {
+            return "<table id='$id'>\n";
+        }
+        return "<table>\n";
+    }
+    private function setTableHead($array){
+    	 if ($this->tableHeader != null) {
+            return $this->tableHeader;
+         } 
+            $theadData = array_shift($array);
+           return $this->addHeader($theadData);
     }
 }
