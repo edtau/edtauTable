@@ -10,13 +10,15 @@ class CTable
     private $tableHeader = null;
     private $rows = null;
     private $displayExceptions = false;
-    private $exception = false;
+    private $exception = null;
     public function __construct($displayExceptions = false)
     {
         $this->displayExceptions = $displayExceptions;
     }
     public function getExecption(){
-
+        if($this->exception === null){
+            return false;
+        }
         return $this->exception;
 
     }
@@ -33,7 +35,7 @@ class CTable
     public function validateArray($array)
     {
         try{
-             if (is_array($array) == false)
+             if (is_array($array) === false)
                 throw new Exception("is not a valid array: ".$array);
         } catch (Exception $e) {
             if($this->displayExceptions){
@@ -86,7 +88,7 @@ class CTable
     {
 
         try {
-            if ($this->tableHeader != null AND $this->rows != null) {
+            if ($this->tableHeader != null && $this->rows != null) {
                 $table = "<table>";
                 $table .= $this->tableHeader;
                 foreach ($this->rows as $row) {
@@ -115,7 +117,7 @@ class CTable
     public function simpleTable($array, $id = null)
     {
 
-        if($this->validateArray($array) == false){
+        if($this->validateArray($array) === false){
             return false;
         }
         $table = "<table>\n";
