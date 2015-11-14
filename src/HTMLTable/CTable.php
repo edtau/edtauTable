@@ -110,24 +110,34 @@ class CTable
      */
     public function getTable($id = null)
     {
-        try {
-            if ($this->tableHeader != null && $this->rows != null) {
-
-                $this->setId($id);
-                $table = "<table $this->id>";
-                $table .= $this->tableHeader;
-
-                foreach ($this->rows as $row) {
-                    $table .= $row;
-                }
-                $table .= "</table>";
-                return $table;
+        if($this->checkValidTable()){
+            $this->setId($id);
+            $table = "<table $this->id>";
+            $table .= $this->tableHeader;
+            
+            foreach ($this->rows as $row) {
+                $table .= $row;
             }
-            throw new InvalidArgumentException("You have not added the table header and rows");
-        } catch (Exception $e) {
-            $this->exception = $e->getMessage();
+            $table .= "</table>";
+            return $table;
         }
-        return false;
+         return false;
+    }
+    /**
+     * Function to check that the table is set
+     * @return true|false
+     */
+    private function checkValidTable(){
+        try {
+            if ($this->tableHeader == null || $this->rows == null) {
+                throw new InvalidArgumentException("You have not added the table header and rows");
+            }
+          }
+          catch (Exception $e) {
+            $this->exception = $e->getMessage();
+            return false;
+        }
+      return true;
     }
     /**
      * Function to get the generated table
